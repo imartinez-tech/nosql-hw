@@ -2,7 +2,7 @@ const { connect, connection } = require('mongoose');
 
 
 const connectionString = 
-    process.env.MONGODB_URI || 'mongodb://localhost/workoutdb' 
+    process.env.MONGODB_URI || 'mongodb://localhost/workoutDB' 
 
 connect(connectionString, {
     useNewUrlParser: true,
