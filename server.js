@@ -13,7 +13,7 @@ app.use(express.static("public"));
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGO_URI || "mongodb//localhost/workout", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useUnifiedTopology: true});
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
