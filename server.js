@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require("morgan");
 const mongoose = require('mongoose'); 
+const connectDB = require('./config/connection')
+
 
 const PORT = process.env.PORT || 3001; 
 
@@ -13,7 +15,8 @@ app.use(express.static("public"));
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useUnifiedTopology: true});
+// mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useUnifiedTopology: true});
+connectDB();
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
